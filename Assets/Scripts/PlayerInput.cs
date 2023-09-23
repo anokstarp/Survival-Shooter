@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private float horizontal;
-    private float vertical;
+    public float horizontal { get; private set; }
+    public float vertical { get; private set; }
 
     public Vector3 direction { get; private set; }
 
@@ -32,7 +32,5 @@ public class PlayerInput : MonoBehaviour
         if (direction.magnitude > 1) direction = direction.normalized;
 
         animator.SetFloat("Speed", direction.magnitude);
-
-        Debug.Log(fire);
     }
 }
