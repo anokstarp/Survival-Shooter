@@ -32,6 +32,11 @@ public class Gun : MonoBehaviour
         bulletLineRenderer.enabled = false;
     }
 
+    private void FixedUpdate()
+    {
+        bulletLineRenderer.SetPosition(0, fireTransform.position);
+    }
+
     public void Fire()
     {
         if (Time.time < lastFireTime + timeBetFire) return;
@@ -55,7 +60,10 @@ public class Gun : MonoBehaviour
 
     private IEnumerator ShotEffect(Vector3 hitPosition)
     {
+        fireFlashEffect.transform.position = fireTransform.position;
+        fireFlashEffect.transform.rotation = fireTransform.rotation;
         fireFlashEffect.Play();
+
         gunAudio.PlayOneShot(fireClip);
 
         bulletLineRenderer.SetPosition(0, fireTransform.position);

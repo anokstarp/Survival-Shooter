@@ -53,7 +53,7 @@ public class Enemy : LivingObject
             {
                 pathFinder.isStopped = true;
 
-                Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, targetMask);
+                Collider[] colliders = Physics.OverlapSphere(transform.position, 80f, targetMask);
 
                 for(int i=0; i<colliders.Length; i++)
                 {
